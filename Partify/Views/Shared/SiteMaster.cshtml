@@ -1,0 +1,50 @@
+﻿@using Partify.Models;
+@{
+    User loggedUser = Session["loggedUser"] != null
+                            ? (User)Session["loggedUser"]
+                            : null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="main-header">
+            <div class="title">
+                <h1>PARTY LIKE IT'S 1998</h1>
+                <h2>THE APP WHICH MAKES PARTYING SO MUCH EASIER!</h2>
+            </div>
+            <div class="login">
+                <span>Hello, @(loggedUser == null ? "anon party animal" : loggedUser.Username)</span>
+                @if (loggedUser == null)
+                {<p><a href="/Home/Login">sign-in</a> / <a href="/Users/Create">register</a> </p>}
+                else
+                { <p> <a href="/Users/Edit">edit acc</a> / <a href="/Home/Logout">logout</a> </p>}
+            </div>
+        </div>
+        <div class="main-menu">
+            <ul>
+                <li>
+                    <a href="/Home/Index">Home</a>
+                </li>
+                <li>
+                    <a href="/Parties/Index">Hosted parties</a>
+                </li>
+                <li>
+                    <a href="/Invites/Index">Parties you're invited to</a>
+                </li>
+            </ul>
+        </div>
+        <div class="main-body">
+            @RenderBody()
+        </div>
+    </div>
+    <footer> A little party never killed nobody... </footer>
+</body>
+</html>

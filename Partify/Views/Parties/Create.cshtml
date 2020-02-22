@@ -1,0 +1,35 @@
+﻿@model Partify.ViewModels.Parties.CreateVM
+
+@{
+    ViewBag.Title = "Create a new party";
+    Layout = "~/Views/Shared/SiteMaster.cshtml";
+}
+
+<form action="/Parties/Create" method="post">
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-column">
+                @Html.LabelFor(m => m.Title)
+            </div>
+            <div class="grid-column-triple">
+                @Html.TextBoxFor(m => m.Title)
+                @Html.ValidationMessageFor(m => m.Title, null, new { style = "color: red;" })
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="grid-column">
+                @Html.LabelFor(m => m.Description)
+            </div>
+            <div class="grid-column-triple">
+                @Html.TextAreaFor(m => m.Description)
+                @Html.ValidationMessageFor(m => m.Description, null, new { style = "color: red;" })
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="grid-column">
+                <input type="submit" value="Save" />
+                <a href="/Parties/Index">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>

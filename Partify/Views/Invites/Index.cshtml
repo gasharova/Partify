@@ -1,0 +1,33 @@
+﻿@model Partify.ViewModels.Invites.IndexVM
+
+@{
+    ViewBag.Title = "Your party invitations";
+    Layout = "~/Views/Shared/SiteMaster.cshtml";
+}
+
+    <div class="container">
+        <div class="row row-header">
+            <div class="col-sm-2">Title</div>
+            <div class="col-sm-4">Description</div>
+            <div class="col-sm-4">Other invited are:</div>
+            <div class="col-sm-2">Options</div>
+        </div>
+        @for (int i = 0; i < Model.Items.Count(); i++)
+        {
+            <div class="row">
+                <div class="col-sm-2">@Model.Items[i].Title</div>
+                <div class="col-sm-4">@Model.Items[i].Description</div>
+                <div class="col-sm-4">
+                    Invited are:
+                    @foreach (string user in Model.Invited[i])
+                    {
+                        <span>@user, </span>
+                    }
+                </div>
+                <div class="col-sm-2">
+                    <a href="/Invites/Create?partyId=@Model.Items[i].Id">Invite</a>
+                    <a href="/Invites/Delete?partyId=@Model.Items[i].Id" onclick="return confirm('Leave party?')">Leave</a>
+                </div>
+            </div>
+        }
+    </div>

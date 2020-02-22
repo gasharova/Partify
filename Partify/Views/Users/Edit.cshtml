@@ -1,0 +1,54 @@
+﻿@model Partify.ViewModels.Users.EditVM
+
+@{
+    ViewBag.Title = "Edit your account";
+    Layout = "~/Views/Shared/SiteMaster.cshtml";
+}
+
+<form action="/Users/Edit" method="post">
+    @Html.HiddenFor(m => m.Id)
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-column">
+                @Html.LabelFor(m => m.Username)
+            </div>
+            <div class="grid-column-triple">
+                @Html.TextBoxFor(m => m.Username)
+                @Html.ValidationMessageFor(m => m.Username, null, new { style = "color: red;" })
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="grid-column">
+                @Html.LabelFor(m => m.Password)
+            </div>
+            <div class="grid-column-triple">
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password, null, new { style = "color: red;" })
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="grid-column">
+                @Html.LabelFor(m => m.FirstName)
+            </div>
+            <div class="grid-column-triple">
+                @Html.TextBoxFor(m => m.FirstName)
+                @Html.ValidationMessageFor(m => m.FirstName, null, new { style = "color: red;" })
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="grid-column">
+                @Html.LabelFor(m => m.LastName)
+            </div>
+            <div class="grid-column-triple">
+                @Html.TextBoxFor(m => m.LastName)
+                @Html.ValidationMessageFor(m => m.LastName, null, new { style = "color: red;" })
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="grid-column">
+                <input type="submit" value="Save" />
+                <a href="/Users/Index">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>

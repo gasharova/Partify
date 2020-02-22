@@ -1,0 +1,38 @@
+﻿@model Partify.ViewModels.Home.LoginVM
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/SiteMaster.cshtml";
+}
+
+<form action="/Home/Login" method="post">
+    @Html.HiddenFor(m => m.Url)
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-column">
+                @Html.LabelFor(m => m.Username)
+            </div>
+            <div class="grid-column-triple">
+                @Html.TextBoxFor(m => m.Username)
+                @Html.ValidationMessageFor(m => m.Username, null, new { style = "color: red;" })
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="grid-column">
+                @Html.LabelFor(m => m.Password)
+            </div>
+            <div class="grid-column-triple">
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password, null, new { style = "color: red;" })
+            </div>
+        </div>
+        <div class="grid-row">
+            @Html.ValidationMessage("AuthFailed", null, new { style = "color: red;" })
+        </div>
+        <div class="grid-row">
+            <div class="grid-column">
+                <input type="submit" value="Login" />
+            </div>
+        </div>
+    </div>
+</form> 

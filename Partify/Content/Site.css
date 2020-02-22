@@ -1,0 +1,81 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Barrio&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Margarine&display=swap');
+
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #ffffcc !important;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.title {
+    margin-left: 10px;
+    color: orange;
+    font-family: Barrio;
+}
+
+.login {
+    position: absolute;
+    right: 20px;
+    font-family: Margarine;
+}
+
+.main-menu ul li {
+    display: inline;
+    margin-right: 80px;
+    left: 100px;
+}
+
+.main-menu ul li a {
+    color: orangered;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: Barrio;
+}
+
+.main-body {
+    margin-left: 50px;
+    margin-top: 30px;
+    font-family: Margarine;
+    font-size: 18px;
+}
+
+:read-write {
+    background-color: orange !important;
+    border: 2px solid darkorange;
+}
+
+input{
+    background-color: red;
+}
+
+a {
+    color: orangered !important;
+}
+
+.row-header{
+    color: darkorange;
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    left: 40%;
+    color: darkslategrey;
+    font-family: Barrio;
+}

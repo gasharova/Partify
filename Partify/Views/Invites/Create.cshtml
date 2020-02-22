@@ -1,0 +1,28 @@
+﻿@model Partify.ViewModels.Invites.CreateVM
+
+@{
+    ViewBag.Title = "Invite someone";
+    Layout = "~/Views/Shared/SiteMaster.cshtml";
+}
+
+<form action="/Invites/Create" method="post">
+    <div class="grid">
+        @Html.HiddenFor(m => m.PartyId)
+        <div class="grid-row">
+            <div class="grid-column">
+                @Html.LabelFor(m => m.ReceiverUsername)
+            </div>
+            <div class="grid-column-triple">
+                @Html.TextAreaFor(m => m.ReceiverUsername)
+                @Html.ValidationMessageFor(m => m.ReceiverUsername, null, new { style = "color: red;" })
+            </div>
+        </div>
+        <span style="color:red">@Html.ValidationSummary()</span>
+        <div class="grid-row">
+            <div class="grid-column">
+                <input type="submit" value="Save" />
+                <a href="/Invites/Index">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
